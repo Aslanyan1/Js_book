@@ -1,0 +1,25 @@
+<html>
+
+<body>
+    <p id="p1"></p>
+    <script>
+        function highlight(text) {
+            let p = document.getElementById("p1");
+            let newHTML = "";
+
+            for (let i = 0; i < text.length; i++) {
+                if (i % 2 === 0) {
+                    newHTML += `<span style="background: yellow">${text[i]}</span>`;
+                } else {
+                    newHTML += text[i];
+                }
+            }
+
+            p.innerHTML = newHTML;
+        }
+
+        highlight("Hello I am Aram");
+    </script>
+</body>
+
+</html>

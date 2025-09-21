@@ -1,0 +1,19 @@
+<html>
+
+<body>
+    <p id="counter"></p>
+    <button onclick="c(n++)">add</button>
+    <button onclick="c(n--)">minus</button>
+    <button onclick="c(n=0)">zero</button>
+    <script>
+        let counterEl = document.getElementById("counter");
+        let n = +localStorage.getItem('counter')
+        function c(val) {
+            counterEl.textContent = val
+            localStorage.setItem('counter', val)
+        }
+        c(100)
+    </script>
+</body>
+
+</html>

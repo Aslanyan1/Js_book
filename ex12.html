@@ -1,0 +1,26 @@
+<html>
+
+<body>
+    <button id="b1" onclick="click_throttle('Hello', 3000)">Click</button>
+
+    <script>
+        let last_click = 0;
+
+        function click_throttle(text, timeout) {
+            let now = Date.now();
+
+            if (now - last_click < timeout) {
+                alert('Wait ' + ((timeout - (now - last_click)) / 1000).toFixed(1) + " sec");
+                return false;
+            }
+
+            last_click = now;
+            alert(text);
+            return true;
+        }
+        let checking = click_throttle('Hello from script', 5000);
+        alert(checking);
+    </script>
+</body>
+
+</html>
