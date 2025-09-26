@@ -1,0 +1,27 @@
+<!-- Create a simple calendar -->
+<html>
+<title>
+    <title>Calendar</title>
+</title>
+<body>
+    <h1>Calendar 2025</h1>
+    <h2 id="monthtitle"></h2>
+    <div id="calendar"></div>
+    <script>
+        const now = new Date();
+        const y = now.getFullYear();
+        const m = now.getMonth();
+        const d = new Date(y, m, 1);
+        const today = now.getDate();
+        const days = new Date(y, m + 1, 0).getDate();
+        let out = '<pre> Sun Mon Tue Wed Thu Fri Sat\n';
+        + '  '.repeat(d.getDate());
+        for (let i = 1; i <= days; i++) {
+            out += (i === today ? `[${i}]` : i).toString().padStart(4);
+            if ((i + d.getDay()) % 7 === 0) out += '\n';
+        }
+        document.getElementById('calendar').innerHTML = out + '</pre>';
+    </script>
+</body>
+
+</html>
